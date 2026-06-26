@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matérias - Ingressantes Elétrica</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
@@ -14,95 +15,185 @@
             <p>Painel de Links Úteis das Disciplinas</p>
         </div>
         <nav class="nav-menu">
-            <a href="index.html" class="nav-link">📅 Horários</a>
+            <a href="index.html" class="nav-link">⌚ Horários</a>
             <a href="materias.html" class="nav-link active">📚 Matérias</a>
             <a href="professores.html" class="nav-link">🎓 Professores</a>
+            <a href="provas.html" class="nav-link"> ✍️ Avaliações</a>
+            <a href="agenda.html" class="nav-link">📅 Agenda</a>
         </nav>
     </header>
 
     <main class="container">
         <section class="card-section">
             <h2>📚 Painel de Matérias</h2>
-            <p class="subtitle">Acesso direto ao JúpiterWeb, ao E-Disciplinas e ao PoliShare.</p>
+            <p class="subtitle">Selecione a disciplina para visualizar os links e critérios de avaliação.</p>
             
-            <div class="grid-container">
+            <div class="tab-container" style="flex-wrap: wrap;">
+                <button class="tab-btn active" onclick="switchTab('mat2454')">MAT2454</button>
+                <button class="tab-btn" onclick="switchTab('mat3458')">MAT3458</button>
+                <button class="tab-btn" onclick="switchTab('pcs3110')">PCS3110</button>
+                <button class="tab-btn" onclick="switchTab('pcs3111')">PCS3111</button>
+                <button class="tab-btn" onclick="switchTab('eng0323100')">0323100</button>
+                <button class="tab-btn" onclick="switchTab('fsc4323102')">4323102</button>
+                <button class="tab-btn" onclick="switchTab('pme0100')">PME0100</button>
+            </div>
+
+            <div id="mat2454" class="tab-content active">
                 <div class="materia-card">
                     <div class="tag calc-tag">Cálculo</div>
                     <h3>Cálculo Diferencial e Integral II</h3>
                     <p class="code-text">Código: MAT2454</p>
+                    
                     <div class="btn-group">
-                        <a href="" target="_blank" class="btn btn-jupiter">JúpiterWeb</a>
+                        <a href="https://uspdigital.usp.br/jupiterweb/obterDisciplina?nomdis=&sgldis=MAT2454" target="_blank" class="btn btn-jupiter">JúpiterWeb</a>
                         <a href="" target="_blank" class="btn btn-moodle">Moodle</a>
                         <a href="https://www.polishare.com.br/index.php?id=W72" target="_blank" class="btn btn-polishare">Poli-Share</a>
                     </div>
+
+                    <div class="avaliacao-section" style="margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px;">
+                        <h4>✍️ Critérios de Avaliação</h4>
+                        <p style="margin-top: 8px; color: #555;">As informações sobre as provas (P1, P2, SUB) e ponderação de notas estarão disponíveis aqui.</p>
+                    </div>
                 </div>
+            </div>
+
+            <div id="mat3458" class="tab-content">
                 <div class="materia-card">
                     <div class="tag calc-tag">Algelin</div>
                     <h3>Algebra Linear II</h3>
                     <p class="code-text">Código: MAT3458</p>
+                    
                     <div class="btn-group">
-                        <a href="" target="_blank" class="btn btn-jupiter">JúpiterWeb</a>
+                        <a href="https://uspdigital.usp.br/jupiterweb/obterDisciplina?nomdis=&sgldis=MAT3458" target="_blank" class="btn btn-jupiter">JúpiterWeb</a>
                         <a href="" target="_blank" class="btn btn-moodle">Moodle</a>
                         <a href="https://www.polishare.com.br/index.php?id=kWm7" target="_blank" class="btn btn-polishare">Poli-Share</a>
                     </div>
+
+                    <div class="avaliacao-section" style="margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px;">
+                        <h4>✍️ Critérios de Avaliação</h4>
+                        <p style="margin-top: 8px; color: #555;">As informações sobre as provas (P1, P2, SUB) e ponderação de notas estarão disponíveis aqui.</p>
+                    </div>
                 </div>
+            </div>
+
+            <div id="pcs3110" class="tab-content">
                 <div class="materia-card">
                     <div class="tag calc-tag">Algoritmos</div>
                     <h3>Algoritmos e Estruturas de Dados para Engenharia Elétrica</h3>
                     <p class="code-text">Código: PCS3110</p>
+                    
                     <div class="btn-group">
-                        <a href="" target="_blank" class="btn btn-jupiter">JúpiterWeb</a>
-                        <a href="" target="_blank" class="btn btn-moodle">Moodle</a>
-                        <a href="https://www.polishare.com.br/index.php?id=pBD7" target="_blank" class="btn btn-polishare">Poli-Share</a>
+                        <a href="https://uspdigital.usp.br/jupiterweb/obterDisciplina?nomdis=&sgldis=PCS3110" target="_blank" class="btn btn-jupiter">JúpiterWeb</a>
+                        <a href="https://edisciplinas.usp.br/course/view.php?id=141903" target="_blank" class="btn btn-moodle">Moodle</a>
+                        <a href="https://www.polishare.com.br/index.php?id=pBD" target="_blank" class="btn btn-polishare">Poli-Share</a>
+                    </div>
+
+                    <div class="avaliacao-section" style="margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px;">
+                        <h4>✍️ Critérios de Avaliação</h4>
+                        <p style="margin-top: 8px; color: #555;">
+                            A avaliação da disciplina é feita através de testes assíncronos realizados nas 24 horas subsequentes ao final de cada aula, e duas provas.  <strong>A PSUB é fechada</strong>: necessário requerimento fundamentado, sendo analisado caso a caso. A REC é prevista regimentalmente pela universidade, e acontecerá na data estabelecida pelo Ciclo Básico.
+                        </p>
+                        <p style="margin-top: 8px; color: #555;">
+                            A nota final é calculada da seguinte forma:
+                        </p>
+                        
+                        $$ NF = 0.3\times MA + 0.7\times MP $$
+
+                        
+                        <p style="margin-top: 8px; color: #555;">
+                            Em que <strong>MA</strong> é a média das 16 melhores notas de testes assíncronos (de um total de 24) e <strong>MP</strong> é a média aritmética das três provas.
+                        </p>
+                        <p style="margin-top: 8px; color: #555; font-size: 0.9rem;">
+                            Se \(3\le NF < 5\), o aluno faz <strong>REC</strong> e se \(\dfrac{NF+REC}{2}\ge5\), o aluno está <strong>aprovado</strong>.
+                            
+                            
+                            Se \(NF \ge 5.0\) e (\(MA < 3\) ou \(MP < 3 \)), o aluno faz <strong>REC</strong> e se \(\dfrac{MX+REC}{2}\ge5\) onde <strong>X = A</strong> ou <strong>X = P</strong>, o aluno está <strong>aprovado</strong>.
+                            
+                            
+                            Se \(NF < 3\) o aluno está <strong>reprovado por nota</strong>.
+                        </p>
                     </div>
                 </div>
+            </div>
+
+            <div id="pcs3111" class="tab-content">
                 <div class="materia-card">
                     <div class="tag calc-tag">LabOO</div>
                     <h3>Laboratório de Programação Orientada a Objetos para Engenharia Elétrica</h3>
                     <p class="code-text">Código: PCS3111</p>
+                    
                     <div class="btn-group">
-                        <a href="" target="_blank" class="btn btn-jupiter">JúpiterWeb</a>
+                        <a href="https://uspdigital.usp.br/jupiterweb/obterDisciplina?nomdis=&sgldis=PCS3111" target="_blank" class="btn btn-jupiter">JúpiterWeb</a>
                         <a href="" target="_blank" class="btn btn-moodle">Moodle</a>
                         <a href="https://www.polishare.com.br/index.php?id=5Mp" target="_blank" class="btn btn-polishare">Poli-Share</a>
                     </div>
+
+                    <div class="avaliacao-section" style="margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px;">
+                        <h4>✍️ Critérios de Avaliação</h4>
+                        <p style="margin-top: 8px; color: #555;">As informações sobre entregas de projetos e relatórios estarão disponíveis aqui.</p>
+                    </div>
                 </div>
+            </div>
+
+            <div id="eng0323100" class="tab-content">
                 <div class="materia-card">
                     <div class="tag calc-tag">Intro a Eng. Elétrica</div>
                     <h3>Introdução à Engenharia Elétrica</h3>
                     <p class="code-text">Código: 0323100</p>
+                    
                     <div class="btn-group">
-                        <a href="" target="_blank" class="btn btn-jupiter">JúpiterWeb</a>
+                        <a href="https://uspdigital.usp.br/jupiterweb/obterDisciplina?nomdis=&sgldis=0323100" target="_blank" class="btn btn-jupiter">JúpiterWeb</a>
                         <a href="" target="_blank" class="btn btn-moodle">Moodle</a>
                         <a href="https://www.polishare.com.br/index.php?id=aZy" target="_blank" class="btn btn-polishare">Poli-Share</a>
                     </div>
+
+                    <div class="avaliacao-section" style="margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px;">
+                        <h4>✍️ Critérios de Avaliação</h4>
+                        <p style="margin-top: 8px; color: #555;">As informações sobre frequência e relatórios estarão disponíveis aqui.</p>
+                    </div>
                 </div>
+            </div>
+
+            <div id="fsc4323102" class="tab-content">
                 <div class="materia-card">
                     <div class="tag calc-tag">Física</div>
                     <h3>Física II</h3>
                     <p class="code-text">Código: 4323102</p>
+                    
                     <div class="btn-group">
-                        <a href="" target="_blank" class="btn btn-jupiter">JúpiterWeb</a>
+                        <a href="https://uspdigital.usp.br/jupiterweb/obterDisciplina?nomdis=&sgldis=4323102" target="_blank" class="btn btn-jupiter">JúpiterWeb</a>
                         <a href="" target="_blank" class="btn btn-moodle">Moodle</a>
                         <a href="https://www.polishare.com.br/index.php?id=yj" target="_blank" class="btn btn-polishare">Poli-Share</a>
                     </div>
+
+                    <div class="avaliacao-section" style="margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px;">
+                        <h4>✍️ Critérios de Avaliação</h4>
+                        <p style="margin-top: 8px; color: #555;">As informações sobre provas (P1, P2, P3) e questionários online estarão disponíveis aqui.</p>
+                    </div>
                 </div>
+            </div>
+
+            <div id="pme0100" class="tab-content">
                 <div class="materia-card">
                     <div class="tag calc-tag">Mecânica</div>
                     <h3>Mecânica I</h3>
                     <p class="code-text">Código: PME0100</p>
+                    
                     <div class="btn-group">
-                        <a href="" target="_blank" class="btn btn-jupiter">JúpiterWeb</a>
+                        <a href="https://uspdigital.usp.br/jupiterweb/obterDisciplina?nomdis=&sgldis=PME0100" target="_blank" class="btn btn-jupiter">JúpiterWeb</a>
                         <a href="" target="_blank" class="btn btn-moodle">Moodle</a>
                         <a href="https://www.polishare.com.br/index.php?id=ExY" target="_blank" class="btn btn-polishare">Poli-Share</a>
                     </div>
+
+                    <div class="avaliacao-section" style="margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px;">
+                        <h4>✍️ Critérios de Avaliação</h4>
+                        <p style="margin-top: 8px; color: #555;">As informações sobre as provas aplicadas pelo departamento de mecânica estarão disponíveis aqui.</p>
+                    </div>
                 </div>
             </div>
+
         </section>
     </main>
-
-    <footer>
-        <p>© 2026 Engenharia Elétrica Poli-USP</p>
-    </footer>
-
+    <script src="script.js"></script>
 </body>
 </html>

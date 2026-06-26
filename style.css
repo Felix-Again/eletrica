@@ -19,7 +19,6 @@ header {
 .schedule-table { width: 100%; border-collapse: collapse; text-align: center; }
 .schedule-table th, .schedule-table td { border: 1px solid #e0e0e0; padding: 12px; }
 .calc { background-color: #e3f2fd; color: #0d47a1; }
-.phys { background-color: #e8f5e9; color: #1b5e20; }
 .btn-jupiter { background-color: #003366; color: white; }
 .btn-moodle { background-color: #e67e22; color: white; }
 .btn-polishare { background-color: #1c4587; color: white; }
@@ -29,14 +28,6 @@ header {
 .yellow-mat { background-color: #fff2cc; color: #7f6000; }
 .red-mat { background-color: #f47a7a; color: #ffffff; }   
 .pcs-teo { background-color: #ead1dc; color: #4c1130; }   
-
-@media (min-width: 768px) {
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-        gap: 30px; 
-    }
-}
 
 .btn-group {
     display: flex;
@@ -174,4 +165,37 @@ header {
 
 .schedule-table {
     min-width: 600px;
+}
+
+.agenda-dia-bloco {
+    margin-bottom: 30px;
+    border-left: 4px solid #003366;
+    padding-left: 15px;
+}
+
+.agenda-dia-bloco h3 {
+    margin-bottom: 15px;
+    color: #003366;
+}
+
+.evento-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Cores dinâmicas por categoria para organizar visualmente */
+.evento-card.plantão { border-left: 4px solid #e67e22; }
+.evento-card.integração { border-left: 4px solid #9b59b6; }
+.evento-card.workshop { border-left: 4px solid #2ecc71; }
+
+.evento-hora {
+    font-weight: bold;
+    color: #475569;
+    min-width: 60px;
 }
