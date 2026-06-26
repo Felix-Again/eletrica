@@ -49,41 +49,37 @@ function processarDadosBrutos(textoDoGoogle) {
 
 function processarERenderizar(linhas) {
     const container = document.getElementById('agenda-container');
-    
-    if (!container) {
-        console.error("Erro: O elemento #agenda-container não foi encontrado no HTML.");
-        return;
-    }
-    
-    container.innerHTML = ''; 
-    //console.log("Dados recebidos do Google:", linhas); 
+    if (!container) return;
 
+    container.innerHTML = ''; 
     const eventosPorData = {};
 
     linhas.forEach(linha => {
-    if (!linha.c || !linha.c[0]) return;
+        if (!linha.c || !linha.c[0]) return;
 
-    const dataOriginal = linha.c[0].f || linha.c[0].v; 
+        const dataOriginal = linha.c[0].f || linha.c[0].v; 
+        if (dataOriginal.toString().includes("Data")) return;
 
-    if (dataOriginal.toString().includes("Data")) {
-        console.log("Ignorando a linha de cabeçalho da planilha.");
-        return; 
-    }
+        let categoria = linha.c[2] ? linha.c[2].v.toString().trim() : 'Geral';
+        const categoriaMinuscula = categoria.toLowerCase();
 
-    const hora = linha.c[1] ? (linha.c[1].f || linha.c[1].v) : '--:--';
-    const categoria = linha.c[2] ? linha.c[2].v : 'Geral';
-    const titulo = linha.c[3] ? linha.c[3].v : 'Sem título';
-    const local = linha.c[4] ? linha.c[4].v : 'A definir';
+        if (categoriaMinuscula.includes("prova") || categoriaMinuscula.includes("sub") || categoriaMinuscula.includes("rec")) {
+            return;
+        }
 
-    if (!eventosPorData[dataOriginal]) {
-        eventosPorData[dataOriginal] = [];
-    }
-    
-    eventosPorData[dataOriginal].push({ hora, categoria, titulo, local });
-});
+        const hora = linha.c[1] ? (linha.c[1].f || linha.c[1].v) : '--:--';
+        const titulo = linha.c[3] ? linha.c[3].v : 'Sem título';
+        const local = linha.c[4] ? linha.c[4].v : 'A definir';
+
+        if (!eventosPorData[dataOriginal]) {
+            eventosPorData[dataOriginal] = [];
+        }
+        
+        eventosPorData[dataOriginal].push({ hora, categoria, titulo, local });
+    });
 
     if (Object.keys(eventosPorData).length === 0) {
-        container.innerHTML = "<p class='subtitle'>Nenhum evento marcado para os próximos dias! 🎉</p>";
+        container.innerHTML = "<p class='subtitle'>Nenhum evento marcado para os próximos dias!</p>";
         return;
     }
 
@@ -94,8 +90,11 @@ function processarERenderizar(linhas) {
         let eventosHTML = `<h3>📅 ${data}</h3>`;
         
         eventosPorData[data].forEach(evento => {
+            
+            const classeCategoria = evento.categoria.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
             eventosHTML += `
-                <div class="evento-card ${evento.categoria.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}">
+                <div class="evento-card ${classeCategoria}">
                     <div class="evento-hora">${evento.hora}</div>
                     <div class="evento-info">
                         <h4>[${evento.categoria}] ${evento.titulo}</h4>
@@ -110,5 +109,4 @@ function processarERenderizar(linhas) {
     }
 }
 
-// Inicializa
 window.addEventListener('DOMContentLoaded', carregarAgenda);
